@@ -1,0 +1,6 @@
+.env
+.node_repl_history
+.eslintcache
+.npm
+*.tsbuildinfo
+node_modules/
