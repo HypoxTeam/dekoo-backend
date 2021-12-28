@@ -1,0 +1,1 @@
+console.log("Hypox Team says 'Hello World'")
