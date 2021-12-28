@@ -3,4 +3,9 @@
 .eslintcache
 .npm
 *.tsbuildinfo
-node_modules/
+/node_modules
+
+/.idea/
+*.iml
+
+/build
