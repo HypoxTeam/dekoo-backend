@@ -9,15 +9,15 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HypoxTeam/dekoobackend.git"
+    "url": "git+https://github.com/HypoxTeam/dekoo-backend.git"
   },
   "keywords": [],
   "author": "Hypox Team",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HypoxTeam/dekoobackend/issues"
+    "url": "https://github.com/HypoxTeam/dekoo-backend/issues"
   },
-  "homepage": "https://github.com/HypoxTeam/dekoobackend#readme",
+  "homepage": "https://github.com/HypoxTeam/dekoo-backend#readme",
   "devDependencies": {
     "@types/node": "^17.0.5",
     "ts-node": "^10.4.0",
