@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "build": "bash ./script/compile-protos.sh",
-    "start": "yarn run build && node --loader ts-node/esm src/app.ts"
+    "start": "yarn run build && node --no-warnings --loader ts-node/esm src/app.ts"
   },
   "repository": {
     "type": "git",

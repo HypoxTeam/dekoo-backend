@@ -4,20 +4,15 @@ const { ENVIRONMENT } = process.env
 
 const logger = winston.createLogger({
     level: ENVIRONMENT === 'development' ? 'debug' : 'info',
+    transports: [
+        new winston.transports.Console()
+    ],
     format: winston.format.combine(
         winston.format.timestamp({
-            format: 'YYYY-MM-DD HH:mm:ss'
+            format: 'MMM-DD-YYYY HH:mm:ss'
         }),
-        winston.format.errors({ stack: true }),
-        winston.format.splat(),
-        winston.format.json(),
-        winston.format.colorize()
+        winston.format.printf(info => `${info.level}: ${[info.timestamp]}: ${info.message}`),
     ),
-    transports: [
-        new winston.transports.Console({
-            stderrLevels: ['error'],
-        }),
-    ],
 })
 
 export default logger
