@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { Server, ServerCredentials } from "@grpc/grpc-js"
+import {Server, ServerCredentials} from "@grpc/grpc-js"
 import logger from "./logging/logger"
 
 const {
@@ -9,12 +9,14 @@ const {
 const address = `${SERVER_HOST}:${SERVER_PORT}`
 
 const serverCallback = (error: Error | null) => {
-    if (error != null) {
-        throw error
+    if (error == null) {
+        logger.info(`Server started as ${address}`)
+    } else {
+        logger.error(error)
     }
 }
 
-async function startServer() {
+function startServer() {
     const app = new Server()
 
     if (ENVIRONMENT === "PRODUCTION") {
@@ -25,6 +27,7 @@ async function startServer() {
             ServerCredentials.createSsl(rootCert, [], true),
             serverCallback
         )
+
     } else {
         app.bindAsync(
             address,
@@ -35,9 +38,3 @@ async function startServer() {
 }
 
 startServer()
-    .then(() => {
-        logger.info(`Server started as ${address}`)
-    })
-    .catch(err => {
-        logger.error(err)
-    })
