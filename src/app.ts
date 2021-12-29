@@ -20,7 +20,7 @@ function startServer() {
     const app = new Server()
 
     if (ENVIRONMENT === "PRODUCTION") {
-        const rootCert = new Buffer(`${SSL_ROOT_CERT}`);
+        const rootCert = new Buffer(`${SSL_ROOT_CERT}`, "utf8");
 
         app.bindAsync(
             address,
