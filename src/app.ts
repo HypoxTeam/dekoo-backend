@@ -8,8 +8,9 @@ const {
 
 const address = `${SERVER_HOST}:${SERVER_PORT}`
 
-const serverCallback = (error: Error | null) => {
+const serverCallback = (server: Server, error: Error | null) => {
     if (error == null) {
+        server.start();
         logger.info(`Server started as ${address}`)
     } else {
         logger.error(error)
@@ -17,21 +18,21 @@ const serverCallback = (error: Error | null) => {
 }
 
 function startServer() {
-    const app = new Server()
+    const server = new Server()
 
     if (ENVIRONMENT === "PRODUCTION") {
         const rootCert = new Buffer(`${SSL_ROOT_CERT}`, "utf8");
 
-        app.bindAsync(
+        server.bindAsync(
             address,
             ServerCredentials.createSsl(rootCert, [], true),
-            serverCallback
+            error => serverCallback(server, error)
         )
     } else {
-        app.bindAsync(
+        server.bindAsync(
             address,
             ServerCredentials.createInsecure(),
-            serverCallback
+            error => serverCallback(server, error)
         )
     }
 }
