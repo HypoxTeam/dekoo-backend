@@ -1,0 +1,34 @@
+syntax = "proto3";
+package team.hypox.proto;
+
+message RepositoryWiki {
+
+  string name = 1;
+  string description = 2;
+  string git_uri = 3;
+  repeated string authors_git_uri = 4;
+  repeated WikiPage pages = 5;
+
+  message WikiPage {
+    optional string icon_url = 1;
+    string topic = 2;
+    string title = 3;
+    repeated string authors_git_uri = 4;
+    optional string description = 5;
+    string body = 6;
+    int64 time_read = 7;
+  }
+}
+
+message RepositoryQuery {
+  string name = 1;
+}
+
+service RepositoryService {
+  rpc CreateWiki(RepositoryWiki) returns (RepositoryWiki);
+  rpc GetWiki(RepositoryQuery) returns (RepositoryWiki);
+  rpc UpdateWiki(RepositoryWiki) returns (RepositoryWiki);
+  rpc DeleteWiki(RepositoryQuery) returns (RepositoryWiki);
+}
+
+
