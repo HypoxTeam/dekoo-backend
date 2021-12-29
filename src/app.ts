@@ -27,7 +27,6 @@ function startServer() {
             ServerCredentials.createSsl(rootCert, [], true),
             serverCallback
         )
-
     } else {
         app.bindAsync(
             address,
