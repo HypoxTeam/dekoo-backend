@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import { Server, ServerCredentials } from "@grpc/grpc-js"
-import logger from "./logging/logger.js"
+import logger from "./logging/logger"
 
 const {
     SERVER_HOST, SERVER_PORT, ENVIRONMENT, SSL_ROOT_CERT
