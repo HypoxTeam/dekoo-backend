@@ -19,6 +19,7 @@ else
   protoc \
       --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
       --ts_out=${PROTO_DEST} \
+      --experimental_allow_proto3_optional \
       -I ./proto \
       proto/*.proto
 fi
