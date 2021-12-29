@@ -7,7 +7,6 @@
     "build": "bash ./script/compile-protos.sh",
     "start": "yarn run build && node --loader ts-node/esm src/app.ts"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HypoxTeam/dekoo-backend.git"
